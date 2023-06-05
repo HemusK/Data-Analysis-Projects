@@ -5,6 +5,9 @@ CREATE TEMPORARY TABLE GreaterLA (county VARCHAR(255) ) ;
 INSERT INTO GreaterLA
 VALUES ("Los Angeles County"), ("Orange County"), ("Riverside County"), ("San Bernardino County"), ("Ventura County");
 
+#This query is to get what percent of a county resides in a contiguous urbanized area.
+#UACE is the Census Code for an Urban Area, 51455 is Los Angeles-Long Beach-Anaheim, 75340 is for Riverside-San Bernardino.
+
 SELECT counties.county_name AS county_name, UACE, Population, (Population/counties.county_population)*100 AS Percent_in_UACE
 FROM urban_areas
 JOIN counties ON counties.county_ID=urban_areas.COUNTY_ID
